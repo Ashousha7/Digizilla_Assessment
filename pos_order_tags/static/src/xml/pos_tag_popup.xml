@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<t t-name="PosTagPopup" owl="1">
+  <div class="pos-tag-popup">
+    <div class="popup-body">
+      <h3>Select Order Tags</h3>
+      <div class="tag-list">
+        <t t-foreach="props.tags" t-as="tag">
+          <button t-att-class="'tag-item ' + (props.selectedIds.includes(tag.id) ? 'selected' : '')"
+                  t-on-click="() => props.toggle(tag.id)">
+            <t t-esc="tag.name"/>
+          </button>
+        </t>
+      </div>
+    </div>
+    <div class="popup-footer">
+      <button t-on-click="props.cancel">Cancel</button>
+      <button t-on-click="props.confirm">Confirm</button>
+    </div>
+  </div>
+</t>

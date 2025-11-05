@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- menu: under Point of Sale > Configuration -->
+  <menuitem id="menu_pos_config" name="Configurations" parent="point_of_sale.menu_point_root"/>
+  <menuitem id="menu_pos_order_tags_root" name="Order Tags" parent="menu_pos_config"/>
+
+  <record id="view_pos_order_tag_tree" model="ir.ui.view">
+    <field name="name">pos.order.tag.tree</field>
+    <field name="model">pos.order.tag</field>
+    <field name="arch" type="xml">
+      <tree string="Order Tags">
+        <field name="name"/>
+        <field name="color" widget="color"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="action_pos_order_tags" model="ir.actions.act_window">
+    <field name="name">Order Tags</field>
+    <field name="res_model">pos.order.tag</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Create tags used in POS orders.
+      </p>
+    </field>
+  </record>
+
+  <menuitem id="menu_action_pos_order_tags" parent="menu_pos_order_tags_root" action="action_pos_order_tags"/>
+</odoo>
